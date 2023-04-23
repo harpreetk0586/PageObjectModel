@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Suite">
+
+	<listeners>
+		<listener class-name="extentReportListener.ExtentReporterNG" />
+		<listener class-name="tests.ListenerNG" />
+	</listeners>
+
+
+	<test name="Test">
+		<classes>
+
+			<class name="tests.LoginLogOutTesting" />
+			<class name="tests.HomePageTesting" />
+			<class name="tests.AddressTesting" />
+
+
+		</classes>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->
