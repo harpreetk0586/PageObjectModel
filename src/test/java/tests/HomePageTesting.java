@@ -3,27 +3,30 @@ package tests;
 import java.io.IOException;
 
 import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
-
 import base.TestBase;
-import extentReportListener.ExtentReporterNG;
 import pages.HomePagePage;
 import pages.LoginLogOutPage;
 import utilties.TestUtil;
 public class HomePageTesting extends TestBase {
 	LoginLogOutPage lp;
 	HomePagePage hp;
+	public ExtentTest extentTest;
 	
 	public HomePageTesting() throws IOException {
 		super();
 
 	}
+	
+	
+	
+	
 	
 
 	@BeforeMethod
@@ -35,7 +38,7 @@ public class HomePageTesting extends TestBase {
 
 	@Test
 	public void verifyHomePageTitleTest() {
-		;
+		
 		Assert.assertEquals( hp.validateHomePageTitle(),TestUtil.read1.getCellData("HomePageData", "homepage title", 2));
 	}
 
@@ -62,4 +65,5 @@ public class HomePageTesting extends TestBase {
 		driver.quit();
 	}
 
+	
 }

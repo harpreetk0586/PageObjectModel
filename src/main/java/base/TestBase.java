@@ -18,6 +18,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.events.WebDriverListener;
 
+import com.relevantcodes.extentreports.ExtentReports;
+
 import utilties.TestUtil;
 import utilties.WebEventListener;
 
@@ -27,6 +29,7 @@ public static WebDriver driver;
 public static Properties prop;
 public static WebDriverListener webEventListener;
 public static WebDriver eventFireDec;
+public static ExtentReports extent;
 //constructor to initialize the properties file
 public TestBase() throws IOException  {
 
@@ -82,5 +85,18 @@ public static void browserSetUp() throws IOException {
 	driver.get(prop.getProperty("URL"));
 
 }
+
+ public void setExtent(){
+	extent = new ExtentReports(System.getProperty("user.dir")+"/test-output/ExtentReport.html", true);
+	extent.addSystemInfo("Host Name", "Harpreet Mac");
+	extent.addSystemInfo("User Name", "Automation Test");
+	extent.addSystemInfo("Environment", "QA");
+	
+}
+ 
+ public void endReport(){
+		extent.flush();
+		extent.close();
+	}
 }
 

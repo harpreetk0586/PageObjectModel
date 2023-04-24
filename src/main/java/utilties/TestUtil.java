@@ -26,15 +26,18 @@ public static Xls_Reader read2=new Xls_Reader("/Users/hsrag/Desktop/QAThingsToDo
 static String filePath="/Users/hsrag/Desktop/QAThingsToDo/POM_Amazon/screensshots";
 
 
-public static  void getScreenshot(WebDriver driver, String screenshotName) throws IOException{
+public static  String getScreenshot(WebDriver driver, String screenshotName) throws IOException{
 	String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 	TakesScreenshot ts = (TakesScreenshot) driver;
 	File source = ts.getScreenshotAs(OutputType.FILE);
 	
-	destination = System.getProperty("user.dir") + "/FailedTestsScreenshots/" + screenshotName + dateName
-			+ ".png";
+	//destination = System.getProperty("user.dir") + "/FailedTestsScreenshots/" + screenshotName + dateName
+	//		+ ".png";
+	destination = System.getProperty("user.dir") + "/FailedTestsScreenshots/" + screenshotName + ".png";
+		//		+ ".png";
 	File finalDestination = new File(destination);
 	FileUtils.copyFile(source, finalDestination);
+	return destination;
 	
 }
 }
